@@ -22,8 +22,10 @@
 // THE SOFTWARE.
 //
 
-extension NSData : Value {
+import Foundation
 
+extension NSData : Value {
+    
     public class var declaredDatatype: String {
         return Blob.declaredDatatype
     }

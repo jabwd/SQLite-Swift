@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		365A477C1C638297005D3DDD /* Cipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365A477B1C638297005D3DDD /* Cipher.swift */; };
+		365A47841C638393005D3DDD /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 365A47831C638385005D3DDD /* libsqlcipher.a */; };
 		EE247AD71C3F04ED00AE3E12 /* SQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = EE247AD61C3F04ED00AE3E12 /* SQLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE247ADE1C3F04ED00AE3E12 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE247AD31C3F04ED00AE3E12 /* SQLite.framework */; };
 		EE247B031C3F06E900AE3E12 /* Blob.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AEE1C3F06E900AE3E12 /* Blob.swift */; };
@@ -83,11 +85,17 @@
 		EE91808E1C46E5230038162A /* SQLite-Bridging.h in Headers */ = {isa = PBXBuildFile; fileRef = EE91808D1C46E5230038162A /* SQLite-Bridging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE91808F1C46E76D0038162A /* SQLite-Bridging.h in Headers */ = {isa = PBXBuildFile; fileRef = EE91808D1C46E5230038162A /* SQLite-Bridging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE9180901C46E8980038162A /* usr/include/sqlite3.h in Headers */ = {isa = PBXBuildFile; fileRef = EE91808B1C46E34A0038162A /* usr/include/sqlite3.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE9180941C46EA210038162A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9180931C46EA210038162A /* libsqlite3.tbd */; };
 		EE9180951C46EBCC0038162A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9180911C46E9D30038162A /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		365A47821C638385005D3DDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 365A477D1C638385005D3DDD /* sqlcipher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC046055464E500DB518D;
+			remoteInfo = sqlcipher;
+		};
 		EE247ADF1C3F04ED00AE3E12 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EE247ACA1C3F04ED00AE3E12 /* Project object */;
@@ -105,6 +113,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		365A477B1C638297005D3DDD /* Cipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cipher.swift; sourceTree = "<group>"; };
+		365A477D1C638385005D3DDD /* sqlcipher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sqlcipher.xcodeproj; path = ../sqlcipher/sqlcipher.xcodeproj; sourceTree = "<group>"; };
 		EE247AD31C3F04ED00AE3E12 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE247AD61C3F04ED00AE3E12 /* SQLite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQLite.h; sourceTree = "<group>"; };
 		EE247AD81C3F04ED00AE3E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -165,7 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE9180941C46EA210038162A /* libsqlite3.tbd in Frameworks */,
+				365A47841C638393005D3DDD /* libsqlcipher.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,9 +206,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		365A477E1C638385005D3DDD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				365A47831C638385005D3DDD /* libsqlcipher.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		EE247AC91C3F04ED00AE3E12 = {
 			isa = PBXGroup;
 			children = (
+				365A477D1C638385005D3DDD /* sqlcipher.xcodeproj */,
 				EE247AD51C3F04ED00AE3E12 /* SQLite */,
 				EE247AE11C3F04ED00AE3E12 /* SQLiteTests */,
 				EE247B8A1C3F81D000AE3E12 /* Metadata */,
@@ -220,6 +239,7 @@
 		EE247AD51C3F04ED00AE3E12 /* SQLite */ = {
 			isa = PBXGroup;
 			children = (
+				365A477B1C638297005D3DDD /* Cipher.swift */,
 				EE91808B1C46E34A0038162A /* usr/include/sqlite3.h */,
 				EE247AD61C3F04ED00AE3E12 /* SQLite.h */,
 				EE247AF71C3F06E900AE3E12 /* Foundation.swift */,
@@ -460,6 +480,12 @@
 			mainGroup = EE247AC91C3F04ED00AE3E12;
 			productRefGroup = EE247AD41C3F04ED00AE3E12 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 365A477E1C638385005D3DDD /* Products */;
+					ProjectRef = 365A477D1C638385005D3DDD /* sqlcipher.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				EE247AD21C3F04ED00AE3E12 /* SQLite iOS */,
@@ -469,6 +495,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		365A47831C638385005D3DDD /* libsqlcipher.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsqlcipher.a;
+			remoteRef = 365A47821C638385005D3DDD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EE247AD11C3F04ED00AE3E12 /* Resources */ = {
@@ -508,6 +544,7 @@
 			files = (
 				EE247B0F1C3F06E900AE3E12 /* CoreFunctions.swift in Sources */,
 				EE247B0A1C3F06E900AE3E12 /* R*Tree.swift in Sources */,
+				365A477C1C638297005D3DDD /* Cipher.swift in Sources */,
 				EE247B031C3F06E900AE3E12 /* Blob.swift in Sources */,
 				EE247B0B1C3F06E900AE3E12 /* Foundation.swift in Sources */,
 				EE247B041C3F06E900AE3E12 /* Connection.swift in Sources */,

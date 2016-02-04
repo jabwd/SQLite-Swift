@@ -22,14 +22,30 @@
 // THE SOFTWARE.
 //
 
-@import Foundation;
-
-#import "sqlite3.h"
-
-typedef struct SQLiteHandle SQLiteHandle; // CocoaPods workaround
-
-NS_ASSUME_NONNULL_BEGIN
-typedef NSString * _Nullable (^_SQLiteTokenizerNextCallback)(const char * input, int * inputOffset, int * inputLength);
-int _SQLiteRegisterTokenizer(SQLiteHandle * db, const char * module, const char * tokenizer, _Nullable _SQLiteTokenizerNextCallback callback);
-NS_ASSUME_NONNULL_END
-
+extension Connection {
+    
+    public func key(key: String) throws {
+        try check(sqlite3_key(handle, key, Int32(key.utf8.count)))
+        try execute(
+            "CREATE TABLE \"__SQLCipher.swift__\" (\"cipher key check\");\n" +
+            "DROP TABLE \"__SQLCipher.swift__\";"
+        )
+    }
+    
+    public func rekey(key: String) throws {
+        try check(sqlite3_rekey(handle, key, Int32(key.utf8.count)))
+    }
+    
+    public func key(key: Blob) throws {
+        try check(sqlite3_key(handle, key.bytes, Int32(key.bytes.count)))
+        try execute(
+            "CREATE TABLE \"__SQLCipher.swift__\" (\"cipher key check\");\n" +
+            "DROP TABLE \"__SQLCipher.swift__\";"
+        )
+    }
+    
+    public func rekey(key: Blob) throws {
+        try check(sqlite3_rekey(handle, key.bytes, Int32(key.bytes.count)))
+    }
+    
+}
