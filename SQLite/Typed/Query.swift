@@ -891,7 +891,10 @@ extension Connection {
                         let e = q.expression
                         var names = try self.prepare(e.template, e.bindings).columnNames.map { $0.quote() }
                         if namespace { names = names.map { "\(query.tableName().expression.template).\($0)" } }
-                        for name in names { columnNames[name] = idx++ }
+                        for name in names {
+                            columnNames[name] = idx
+                            idx += 1
+                        }
                     }
                 }
 
@@ -913,14 +916,15 @@ extension Connection {
                     }
                     continue
                 }
-
-                columnNames[each.expression.template] = idx++
+                
+                columnNames[each.expression.template] = idx
+                idx += 1
             }
             return columnNames
         }()
 
         return AnySequence {
-            anyGenerator { statement.next().map { Row(columnNames, $0) } }
+            AnyGenerator { statement.next().map { Row(columnNames, $0) } }
         }
     }
 
