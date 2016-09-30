@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 //
 
-extension Connection {
+/*extension Connection {
     
     public func key(key: String) throws {
         try check(sqlite3_key(handle, key, Int32(key.utf8.count)))
@@ -48,4 +48,4 @@ extension Connection {
         try check(sqlite3_rekey(handle, key.bytes, Int32(key.bytes.count)))
     }
     
-}
+}*/
